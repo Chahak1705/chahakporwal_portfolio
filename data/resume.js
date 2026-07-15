@@ -74,16 +74,6 @@ export const education = [
 
 export const projects = [
   {
-    id: "college-discovery",
-    title: "College Discovery Platform",
-    color: "#283aac",
-    logo: "/projects/college-discovery-logo.jpg",
-    desc: "A college search & comparison platform with a rank-based JEE predictor, secure auth, and a normalized PostgreSQL schema.",
-    techIcons: ["nextjs", "typescript", "postgresql", "prisma"],
-    repo: "https://github.com/Chahak1705/College_Discovery_Platform",
-    demo: "https://college-discovery-sooty.vercel.app/",
-  },
-  {
     id: "healthguard-ai",
     title: "HealthGuard AI",
     color: "#283aac",
@@ -92,6 +82,16 @@ export const projects = [
     techIcons: ["fastapi", "react", "python"],
     repo: "https://github.com/Chahak1705/HealthGuard-AI",
     demo: "#",
+  },
+  {
+    id: "college-discovery",
+    title: "College Discovery Platform",
+    color: "#283aac",
+    logo: "/projects/college-discovery-logo.jpg",
+    desc: "A college search & comparison platform with a rank-based JEE predictor, secure auth, and a normalized PostgreSQL schema.",
+    techIcons: ["nextjs", "typescript", "postgresql", "prisma"],
+    repo: "https://github.com/Chahak1705/College_Discovery_Platform",
+    demo: "https://college-discovery-sooty.vercel.app/",
   },
   {
     id: "face-attendance",
