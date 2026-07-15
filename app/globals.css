@@ -564,17 +564,29 @@ body {
   gap: 16px;
   margin-top: auto;
 }
-
 .project-logo-circle {
-  width: 80px;
-  height: 80px;
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin: 0 0 20px 0;
   border-radius: 50%;
   overflow: hidden;
-  background: var(--bg-elev);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  background: var(--surface-hi);
+  border: 1px solid var(--border-hi);
+}
+
+.project-logo-circle .logo-bg {
+  display: none;
+}
+
+.project-logo-circle .logo-main {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .project-logo-circle span {
@@ -938,4 +950,71 @@ body {
 
 .about-name-highlight {
   color: var(--accent-2);
+}
+.project-circle-card {
+  transition: transform 0.35s cubic-bezier(.16,1,.3,1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-circle-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-hi);
+  box-shadow: 0 20px 50px -20px rgba(0,0,0,.6);
+}
+.project-tech-icon {
+  transition: transform 0.25s ease, color 0.25s ease, background 0.25s ease;
+}
+
+.project-tech-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  color: var(--accent-2);
+  background: var(--accent-soft);
+}
+#cat-mascot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.4));
+}
+
+@media (max-width: 768px) {
+  #cat-mascot { display: none; }
+}
+
+/* legs still by default */
+.cat-legs .leg {
+  transform-origin: top center;
+}
+
+/* running animation - legs alternate quickly */
+#cat-mascot.running .leg1 { animation: legSwing 0.25s ease-in-out infinite; }
+#cat-mascot.running .leg2 { animation: legSwing 0.25s ease-in-out infinite reverse; }
+#cat-mascot.running .leg3 { animation: legSwing 0.25s ease-in-out infinite reverse; }
+#cat-mascot.running .leg4 { animation: legSwing 0.25s ease-in-out infinite; }
+
+@keyframes legSwing {
+  0%, 100% { transform: rotate(-18deg); }
+  50% { transform: rotate(18deg); }
+}
+
+/* slight bob while running */
+#cat-mascot.running svg {
+  animation: catBob 0.25s ease-in-out infinite;
+}
+
+@keyframes catBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* tail wag when idle */
+#cat-mascot:not(.running) .cat-tail {
+  animation: tailWag 1.6s ease-in-out infinite;
+  transform-origin: 10px 22px;
+}
+
+@keyframes tailWag {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(8deg); }
 }

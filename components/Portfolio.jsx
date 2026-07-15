@@ -30,6 +30,7 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
   const scrollRef = useRef(null);
   const [darkMode, setDarkMode] = useState(true);
+
   useEffect(() => {                                 
     document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
   }, [darkMode]);
@@ -50,7 +51,17 @@ const scrollProjects = (dir) => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+
   // active section highlighting
+  useEffect(() => {
+
+  const handleMouseMove = (e) => {
+    document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
+    document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
+  };
+  window.addEventListener("mousemove", handleMouseMove);
+  return () => window.removeEventListener("mousemove", handleMouseMove);
+}, []);
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
     const obs = new IntersectionObserver(
@@ -68,6 +79,7 @@ const scrollProjects = (dir) => {
   return (
     <>
       <div id="scroll-progress" style={{ width: `${progress}%` }} />
+      <div id="scroll-progress" style={{ width: `${progress}%` }} />
 <nav id="navbar" className={scrolled ? "scrolled" : ""}>
   <a href="#hero" className="nav-logo">
     Chahak Porwal
@@ -81,6 +93,7 @@ const scrollProjects = (dir) => {
       </li>
     ))}
   </ul>
+  <div id="scroll-progress" style={{ width: `${progress}%` }} />
   <div className="nav-right">
     <a href={profile.resume} download className="nav-resume-pill">
       Resume <ArrowUpRight size={13} />
@@ -111,10 +124,10 @@ const scrollProjects = (dir) => {
     <div className="hero-row">
       <div className="hero-left">
         <h1 className="hero-title-mono">
-          hi.<br />
-          i&apos;m<br />
-          {profile.name.split(" ")[0].toLowerCase()}.
-        </h1>
+  hi.<br />
+  i&apos;m<br />
+  {profile.name.split(" ")[0].toLowerCase()}.
+</h1>
 
         <p className="hero-sub-mono">
           An aspiring software/backend developer passionate about solving real problems.
@@ -224,12 +237,15 @@ const scrollProjects = (dir) => {
         {projects.map((p) => (
           <Reveal className="project-circle-card" key={p.id}>
             <div className="project-logo-circle">
-              {p.logo ? (
-                <img src={p.logo} alt="" />
-              ) : (
-                <span>{p.title.charAt(0)}</span>
-              )}
-            </div>
+  {p.logo ? (
+    <>
+      <img src={p.logo} alt="" className="logo-bg" />
+      <img src={p.logo} alt={p.title} className="logo-main" />
+    </>
+  ) : (
+    <span>{p.title.charAt(0)}</span>
+  )}
+</div>
 
             <h3 className="project-circle-title" style={{ color: "var(--accent-1)" }}>
               {p.title}

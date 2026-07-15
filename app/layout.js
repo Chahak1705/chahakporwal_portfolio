@@ -1,6 +1,5 @@
 import "./globals.css";
-
-
+import Script from "next/script";
 
 export const metadata = {
   title: "Chahak Porwal — Backend Developer & AI/ML Engineer",
@@ -18,6 +17,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
+
+        <Script
+          src="/oneko.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
