@@ -21,7 +21,7 @@ import Timeline from "./Timeline";
 import ProjectsGrid from "./ProjectsGrid";
 import SkillBar from "./SkillBar";
 import ContactForm from "./ContactForm";
-
+import { Database, Code2} from "lucide-react";
 
 export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
@@ -193,8 +193,8 @@ const scrollProjects = (dir) => {
   <div className="container">
     <Reveal className="eyebrow">Work Experience</Reveal>
     <div className="exp-list">
-      {experience.map((e) => (
-        <Reveal className="exp-row" key={e.role}>
+        {experience.map((e, index) => (
+  <Reveal className="exp-row" key={e.org + e.role}>
           <div className="exp-main">
             <h3 className="exp-org-main">{e.org}</h3>
             <div className="exp-role-sub">{e.role}</div>
