@@ -8,13 +8,11 @@ export const profile = {
   phone: "+91 829-039-0488",
   resume: "/Chahak_Porwal_Resume.pdf",
   location: "Rajasthan, India",
-  github: "https://github.com/", // TODO: add real URL
-  linkedin: "https://linkedin.com/", // TODO: add real URL
-  status: "Available for backend / AI-ML roles",
-  // Drop a square photo in /public (e.g. public/photo.jpg) and point this at it.
-  // Leave null to keep the placeholder avatar.
+  github: "https://github.com/Chahak1705", 
+  linkedin: "https://www.linkedin.com/in/chahakporwal/",
+  status: "Available for Software/Backend Roles",
   photo: "/cp.jpg",
-  heroTagline: "Backend Developer & AI/ML Engineer, currently @ DecodeLabs.",
+  heroTagline: "Software & Backend Developer",
 };
 
 export const stats = [
@@ -66,7 +64,7 @@ export const education = [
     detail: "CGPA: 8.39",
   },
   {
-    degree: "Senior Secondary (Class 12)",
+    degree: "Senior Secondary School",
     org: "Maharishi Arvind Public School",
     location: "Kota, Rajasthan",
     date: "2022",
